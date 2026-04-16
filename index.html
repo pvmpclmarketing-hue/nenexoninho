@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz NeneXoninho</title>
+    <meta name="description" content="Descubra o potencial de sono do seu bebê em 2 minutos.">
+    
+    <!-- Estilos Externos -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Favicon Fallback -->
+    <link rel="icon" href="https://cdn.xquiz.co/images/4fb41506-63a6-45ee-9b40-9ea02aa86543">
+</head>
+<body>
+
+    <div id="app">
+        <!-- Header fixo com Logo -->
+            <h2 class="logo-text" style="color: #ff8fa3; font-size: 2.2rem; font-weight: 800; cursor: pointer; text-align: center; width: 100%; margin: 0 auto;">NeneXoninho</h2>
+        </header>
+
+        <!-- Barra de Progresso (oculta na landing) -->
+        <div id="progress-container" class="progress-container">
+            <div id="progress-bar" class="progress-bar"></div>
+        </div>
+
+        <!-- Conteúdo Dinâmico das Etapas -->
+        <main id="step-content" class="step-content">
+            <!-- Renderizado via script.js -->
+            <div style="display: flex; justify-content: center; align-items: center; height: 200px;">
+                <div class="spinner"></div>
+            </div>
+        </main>
+
+        <!-- Rodapé Padrão -->
+        <footer>
+            <p class="footer-text">Ao iniciar o teste, você concorda com os nossos <u>Termos de Uso</u> e <u>Políticas de Privacidade</u></p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
