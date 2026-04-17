@@ -148,7 +148,7 @@ const quizData = {
             id: 'pitch',
             type: 'pitch',
             buttonText: 'QUERO COMEÇAR AGORA',
-            ctaUrl: 'https://nenexoninho.com.br/checkout'
+            ctaUrl: 'https://pay.hotmart.com/B105422450G?checkoutMode=10'
         }
     ]
 };
@@ -165,25 +165,25 @@ const progressContainer = document.getElementById('progress-container');
 function processText(text) {
     if (!text) return text;
     let newText = text;
-    
+
     const age = answers['age'] || '';
     let ageText = 'alguns meses';
     let hoursText = 'centenas de horas';
     let daysText = 'vários dias';
-    
-    if(age.includes('7-12 meses')) {
+
+    if (age.includes('7-12 meses')) {
         ageText = 'de 7 a 12 meses';
         hoursText = '990 horas';
         daysText = 'mais de 41 dias completos';
-    } else if(age.includes('Mais de 1 ano')) {
+    } else if (age.includes('Mais de 1 ano')) {
         ageText = 'mais de 1 ano';
         hoursText = '1.170 horas';
         daysText = 'quase 50 dias seguidos';
-    } else if(age.includes('0-3 meses')) {
+    } else if (age.includes('0-3 meses')) {
         ageText = 'de 0 a 3 meses';
         hoursText = 'mais de 200 horas';
         daysText = 'mais de 8 dias diretos';
-    } else if(age.includes('4-6 meses')) {
+    } else if (age.includes('4-6 meses')) {
         ageText = 'de 4 a 6 meses';
         hoursText = 'mais de 500 horas';
         daysText = 'mais de 20 dias inteiros';
@@ -192,7 +192,7 @@ function processText(text) {
     newText = newText.replace(/{{idade_texto}}/g, ageText);
     newText = newText.replace(/{{horas_perdidas}}/g, hoursText);
     newText = newText.replace(/{{dias_perdidos}}/g, daysText);
-    
+
     return newText;
 }
 
@@ -203,7 +203,7 @@ function init() {
 function renderStep() {
     const step = quizData.steps[currentStepIndex];
     appContainer.innerHTML = '';
-    
+
     appContainer.classList.remove('active');
     setTimeout(() => {
         appContainer.classList.add('active');
@@ -270,7 +270,7 @@ function renderStep() {
     } else if (step.type === 'alert') {
         const box = document.createElement('div');
         box.className = 'alert-box';
-        
+
         box.innerHTML = `
             <div class="alert-value">${processText(step.alertValue)}</div>
             <p class="alert-subtitle-text">${processText(step.alertSubtitle)}</p>
@@ -289,7 +289,7 @@ function renderStep() {
         if (step.layout === 'grid-2') {
             grid.classList.add('grid-2');
         }
-        
+
         step.options.forEach((opt, index) => {
             const card = document.createElement('div');
             card.className = 'option-card';
@@ -297,7 +297,7 @@ function renderStep() {
                 card.classList.add('vertical');
             }
             card.style.animationDelay = `${index * 0.1}s`;
-            
+
             if (step.cardStyle === 'vertical') {
                 card.innerHTML = `
                     <div class="option-text">${processText(opt.text)}</div>
@@ -320,7 +320,7 @@ function renderStep() {
     } else if (step.type === 'loader') {
         const loaderContainer = document.createElement('div');
         loaderContainer.className = 'loader-container';
-        
+
         const svgCheck = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
 
         step.items.forEach((item, index) => {
@@ -328,20 +328,20 @@ function renderStep() {
             div.className = 'loader-item';
             div.innerHTML = `<div class="spinner"></div> <span class="text">${processText(item)}</span>`;
             loaderContainer.appendChild(div);
-            
+
             setTimeout(() => {
                 div.classList.add('active');
                 setTimeout(() => {
                     div.classList.add('done');
                     const spinnerEl = div.querySelector('.spinner');
-                    if(spinnerEl) {
+                    if (spinnerEl) {
                         const doneIcon = document.createElement('div');
                         doneIcon.className = 'done-icon';
                         doneIcon.innerHTML = svgCheck;
                         spinnerEl.replaceWith(doneIcon);
                     }
                 }, 900);
-            }, index * 1300); 
+            }, index * 1300);
         });
         appContainer.appendChild(loaderContainer);
 
@@ -349,14 +349,14 @@ function renderStep() {
 
     } else if (step.type === 'final') {
         const resultContainer = document.createElement('div');
-        
+
         // Novo título principal com o subtitulo (pode vir do step, já renderizado, 
         // mas vamos adicionar o grid customizado a ele).
 
         // Grid (Card do Gráfico e Imagem)
         const grid = document.createElement('div');
         grid.className = 'result-grid';
-        
+
         // Card do Gráfico
         const graphCard = document.createElement('div');
         graphCard.className = 'result-card';
@@ -366,7 +366,7 @@ function renderStep() {
                 <span class="circular-percent">0%</span>
             </div>
         `;
-        
+
         // Card da Imagem
         const imageCard = document.createElement('div');
         imageCard.className = 'result-card';
@@ -422,7 +422,7 @@ function renderStep() {
         btn.style.backgroundColor = '#059669'; // verde do botão
         btn.onclick = nextStep;
         resultContainer.appendChild(btn);
-        
+
         appContainer.appendChild(resultContainer);
 
         // Lógica para animar o gráfico linearmente de 0 a 87
@@ -435,13 +435,13 @@ function renderStep() {
                 val++;
                 chart.style.background = `conic-gradient(#059669 ${val * 3.6}deg, #e2e8f0 0deg)`;
                 percentLabel.innerText = `${val}%`;
-                if(val >= targetVal) clearInterval(interval);
+                if (val >= targetVal) clearInterval(interval);
             }, 25);
         }, 500);
-        
+
     } else if (step.type === 'pitch') {
         const pitchContainer = document.createElement('div');
-        
+
         let pitchHtml = `
             <div class="pitch-header">
                 <h2>ÓTIMAS NOTÍCIAS!</h2>
@@ -501,8 +501,8 @@ function renderStep() {
                     </div>
                 </div>
                 <div class="pricing-right">
-                    <p>Por apenas 9x de</p>
-                    <h3>R$ 8,80</h3>
+                    <p>Por apenas</p>
+                    <h3>R$ 37,90</h3>
                 </div>
             </div>
             
@@ -533,7 +533,7 @@ function renderStep() {
             });
         }, 300);
 
-        
+
     }
 }
 
@@ -541,12 +541,12 @@ function nextStep() {
     if (currentStepIndex < quizData.steps.length - 1) {
         appContainer.classList.remove('active');
         appContainer.style.transform = 'translateY(-15px)';
-        
+
         setTimeout(() => {
             currentStepIndex++;
             renderStep();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        }, 400); 
+        }, 400);
     }
 }
 
