@@ -22,7 +22,7 @@ const quizData = {
             id: 'social-proof',
             title: 'Mais de 25 mil',
             subtitle: 'É o número de mães que já ajudamos a conquistarem noites tranquilas, através deste projeto.',
-            image: 'https://cdn.xquiz.co/images/b8ef91d1-565c-4d85-8ef7-9b97d09fbbf6',
+            image: 'quizbanner2.jpeg',
             type: 'info',
             buttonText: 'Continuar',
             progress: 0
