@@ -8,7 +8,7 @@ const quizData = {
         {
             id: 'landing',
             title: 'Descubra Em 2 Minutos Como Seu Bebê Pode Aprender a Dormir Sem Ser Mamando',
-            image: 'https://cdn.xquiz.co/images/4c02aed2-7758-42dc-9620-3694f02e1ac4',
+            image: 'quizbanner.jpeg',
             type: 'landing',
             bullets: [
                 'O potencial do seu bebê para dormir a noite toda',
@@ -140,7 +140,7 @@ const quizData = {
             id: 'final',
             title: 'Resultado da sua análise',
             subtitle: 'Com base em suas respostas, identificamos que seu bebê tem:',
-            image: 'https://cdn.xquiz.co/images/4c02aed2-7758-42dc-9620-3694f02e1ac4',
+            image: 'quizbanner.jpeg',
             type: 'final',
             buttonText: 'Ver Solução Recomendada'
         },
@@ -372,7 +372,7 @@ function renderStep() {
         imageCard.className = 'result-card';
         imageCard.innerHTML = `
             <div style="font-size: 0.85rem; font-weight:700; margin-bottom: 24px">Resultado: 🤩 Bom</div>
-            <div class="result-image"><img src="https://cdn.xquiz.co/images/4c02aed2-7758-42dc-9620-3694f02e1ac4"></div>
+            <div class="result-image"><img src="quizbanner.jpeg"></div>
         `;
 
         grid.appendChild(graphCard);
