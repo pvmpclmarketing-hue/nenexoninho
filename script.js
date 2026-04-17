@@ -140,7 +140,6 @@ const quizData = {
             id: 'final',
             title: 'Resultado da sua análise',
             subtitle: 'Com base em suas respostas, identificamos que seu bebê tem:',
-            image: 'quizbanner.jpeg',
             type: 'final',
             buttonText: 'Ver Solução Recomendada'
         },
@@ -372,7 +371,7 @@ function renderStep() {
         imageCard.className = 'result-card';
         imageCard.innerHTML = `
             <div style="font-size: 0.85rem; font-weight:700; margin-bottom: 24px">Resultado: 🤩 Bom</div>
-            <div class="result-image"><img src="quizbanner.jpeg"></div>
+            <div class="result-image"><img src="quizresultado.jpeg"></div>
         `;
 
         grid.appendChild(graphCard);
